@@ -2,7 +2,7 @@
   "ModId": "nights.test.sixtyfps",
   "ModName": "60 FPS",
   "ModAuthor": "Jordan",
-  "ModVersion": "1.0.0",
+  "ModVersion": "1.0.1",
   "ModDescription": "Run the game at 60 FPS instead of 30 FPS.",
   "ModDll": "nights.test.sixtyfps.dll",
   "ModIcon": "Preview.png",

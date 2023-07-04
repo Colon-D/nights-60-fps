@@ -67,13 +67,20 @@ public class Mod : ModBase // <= Do not Remove.
 			);
 
 			// write jz to replace the jnz
+
 			// this makes the soft museum update on the first loop, rather
 			// than the NOPed out second loop.
 			// this also allows the SS Dreams ground to render.
 			// it might do other things too, but I haven't noticed anything.
-			Span<byte> JZ = new byte[] { 0x74 };
+			Span<byte> SHORT_JZ = new byte[] { 0x74 };
 			Memory.Instance.SafeWrite(
-				0x569DDC, JZ
+				0x569DDC, SHORT_JZ
+			);
+			
+			Span<byte> NEAR_JZ = new byte[] { 0x0F, 0x84 };
+			// this makes the cheats enterable on the title screen
+			Memory.Instance.SafeWrite(
+				0x509E67, NEAR_JZ
 			);
 		}
 	}
