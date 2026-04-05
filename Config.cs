@@ -25,13 +25,22 @@ public class Config : Configurable<Config>
         The `DefaultValue` attribute is used as part of the `Reset` button in Reloaded-Launcher.
     */
 
+	[Category("Experimental")]
+	[DisplayName("Render Framerate")]
+    [Description("Framerate that the game will try to render itself to.\n" +
+        "Values greater than Update Framerate will use linear interpolation between update frames.\n" +
+        "Values lower than Update Framerate won't do anything will limit the Update Framerate." +
+        "This is a new experimental feature, and not everything will interpolate.")]
+    [DefaultValue(60)]
+    public int RenderFramerate { get; set; } = 60;
 	[Category("Debugging")]
-	[DisplayName("Target Framerate")]
-    [Description("Framerate that the game will try to limit itself to.\n" +
-        "This WILL make the game run either too fast or too slow.\n" +
-        "The game's logic was already in 60 FPS, which is why this mod exists.")]
-    [DefaultValue(60.0)]
-    public double TargetFramerate { get; set; } = 60.0;
+	[DisplayName("Update Framerate")]
+	[Description("Framerate that the game will try to update itself to.\n" +
+		"This WILL make the game run either too fast or too slow.\n" +
+		"This should be kept at 60 FPS unless you want the game to run at the wrong speed.\n" +
+		"The game's logic was already in 60 FPS, which is why this mod exists.")]
+	[DefaultValue(60)]
+    public int UpdateFramerate { get; set; } = 60;
 }
 
 /// <summary>
